@@ -52,7 +52,7 @@ def lambda_handler(event, context):
     source_uris={
         'provincias':'https://infra.datos.gob.ar/catalog/modernizacion/dataset/7/distribution/7.7/download/provincias.csv',
         'departamentos':'https://infra.datos.gob.ar/catalog/modernizacion/dataset/7/distribution/7.8/download/departamentos.csv',
-        'Covid19Casos':'https://pipeline-covid19.s3.amazonaws.com/Covid19Casos.zip'
+        'Covid19Casos':'https://sisa.msal.gov.ar/datos/descargas/covid-19/files/Covid19Casos.zip'
     }
 
     for key, url in source_uris.items():
