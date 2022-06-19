@@ -71,9 +71,12 @@ Nota: La IP Pública del bastión host hay que buscarla en la consola de AWS. Se
 
 ### Logs
 
+Log de la última corrida de Lambda:
+![logs-etl](images/log-00-lambda.png)
+
 Log de la última corrida de la tarea de etl:
-![logs-etl](images/log-00-etl.png)
+![logs-etl](images/log-01-etl.png)
 
 Log de la última corrida de la tarea de reporte:
-![logs-reports](images/log-01-report.png)
+![logs-reports](images/log-02-report.png)
 
