@@ -25,11 +25,11 @@ Se expone a continuación la topología de red utilizada.
 - Se incluyen 2 zonas de disponibilidad para que la solución sea de alta disponibilidad.
 
 - Se estructura la solución en 3 capas:
-    - Capa pública: public-tier (sobre subnets públicas)
+    - **Capa pública:** public-tier (sobre subnets públicas)<br>
         Bastion host sobre un grupo de auto escalado sin balanceador conpuesto por 1 sola instancia ec2 (Mínimo/Máximo/Deseado). El grupo de autoescalado esta seteado sobre 2 subnets / AZs.
-    - Capa de aplicación: app-tier (sobre subnets privadas)
+    - **Capa de aplicación:** app-tier (sobre subnets privadas)<br>
         Cluster ECS Fargate sobre 2 subnets / AZs.
-    - Capa de base de datos: db-tier (sobre subnets privadas)
+    - **Capa de base de datos:** db-tier (sobre subnets privadas)<br>
         RDS con la opción Multi-AZ habilitada.
 
 - Se implementan varios VPC Endpoints (los mínimos necesarios) para que la capa de aplicación pueda correr con éxito:
