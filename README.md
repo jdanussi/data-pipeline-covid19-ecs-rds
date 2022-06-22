@@ -9,6 +9,7 @@ Se expone a continuación la topología de red utilizada.
 
 ![diagrama](images/data-pipeline-covid19-ecs-rds-networking.png)  
 
+<br>
 
 ## Descripción de la aplicación
 
@@ -19,6 +20,7 @@ Se expone a continuación la topología de red utilizada.
 - Los logs de la tarea Fargate se almacenan en Log Groups de **CloudWatch**.
 - Se agregó un bastion host en la capa pública para poder acceder de manera segura a la base de datos desde fuera de la VPC.
 
+<br>
 
 ## Topología de red utilizada
 
@@ -33,7 +35,6 @@ Se expone a continuación la topología de red utilizada.
         RDS con la opción Multi-AZ habilitada.
 
 - Se implementan varios VPC Endpoints (los mínimos necesarios) para que la capa de aplicación pueda correr con éxito:
-    - ECS endpoint para acceso a la api de ECS.
     - S3 endpoint para bajar/subir archivos de/a los buckets.
     - ECR-dkr y ECR-api para poder consultar/obtener desde el registro las imágenes de los contenedores.
     - Cloudwatch-logs para poder subir los logs de la corrida a Cloudwatch.
@@ -45,20 +46,23 @@ Se expone a continuación la topología de red utilizada.
 ### S3
 Buckets que se utilizan:
 ![s3-buckets](images/s3-00-buckets.png)
+
 <br>
 
 Bucket donde Labmda almacena los datasets tras la descarga:
 ![s3-datasets](images/s3-01-datasets.png)
+
 <br>
 
 Bucket donde se guarda el archivo con las variables de entorno (el archivo que se ve en la imagen no esta en este repositorio. Se omite con .gitignore para no exponer credenciales):
 ![s3-envs](images/s3-02-envs.png)
+
 <br>
 
 Bucket donde ECS Fargate guarda los reportes generados:
 ![s3-reports](images/s3-03-reportes.png)
 
-<br>
+<br><br>
 
 ### Bastion Host
 Acceso a base de datos desde equipo externo haciendo un Local Port Forwarding sobre ssh:
@@ -68,16 +72,18 @@ Acceso a base de datos desde equipo externo haciendo un Local Port Forwarding so
 
 Nota: La IP Pública del bastión host hay que buscarla en la consola de AWS. Se puede resolver el inconveniente implementando un balancedor para el grupo de auto escalado ya que conserva siempre el mismo DNS name.
 
-<br>
+<br><br>
 
 ### Logs
 
 Log de la última corrida de Lambda:
 ![logs-etl](images/log-00-lambda.png)
+
 <br>
 
 Log de la última corrida de la tarea de etl:
 ![logs-etl](images/log-01-etl.png)
+
 <br>
 
 Log de la última corrida de la tarea de reporte:
